@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+		<css src="Zou_Demo::css/demo.css" />
+	</head>
+	<update handle="demo_physicalstore_evaluate"/>
+	<body>
+		<referenceContainer name="content">
+			<block class="Zou\Demo\Block\PhysicalStores" name="physicalstores.physicalstores" before="-" template="Zou_Demo::physical_stores.phtml">
+<!--				<container name="store.evaluate" as="store.eval">-->
+<!--				</container>-->
+				<block class="Zou\Demo\Block\Physicalstore\Evaluate"  name="physicalstore.physicalstore.evaluate"  template="Zou_Demo::physicalstore/evaluate.phtml">
+					<arguments>
+						<argument name="dni" translate="true" xsi:type="string"></argument>
+					</arguments>
+				</block>
+			</block>
+
+		</referenceContainer>
+		<referenceBlock name="page.main.title" remove="true" />
+	</body>
+</page>

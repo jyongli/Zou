@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandList"> //构造函数中的commands参数
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="demo_cmd" xsi:type="object">Zou\Demo\Command\Run</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!--  1  直接覆盖某个类  -->
+    <!--    <preference for="Zou\Demo\Controller\Physicalstore\Index" type="Zou\Demo\Controller\Physicalstore\Index2" />-->
+
+    <!--  2 修改某个类的构造函数的某个参数  参数 context-->
+    <!--    <type name="Zou\Demo\Controller\Physicalstore\Index"> -->
+    <!--        <arguments>-->
+    <!--            <argument name="context" xsi:type="string">adminhtml</argument>-->
+    <!--        </arguments>-->
+    <!--    </type>-->
+
+    <!--  3  在执行某个方法前/后，调用你自己的方法  在执行Index的testFunc  前调用Index2的beforetestFunc  (拦截)  -->
+    <!--    <type name="Zou\Demo\Controller\Physicalstore\Index">-->
+    <!--        <plugin name="testFunc"    type="Zou\Demo\Controller\Physicalstore\Index2"    sortOrder="1"    disabled="false" />-->
+    <!--    </type>-->
+</config>

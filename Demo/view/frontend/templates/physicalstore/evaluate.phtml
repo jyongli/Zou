@@ -1,0 +1,44 @@
+<?php
+#fangfa1
+//$id=$block->getProduct('dni');
+$evaluate_text=$block->getEvaluate();
+?>
+<div class="physicalstore-evaluate">
+	<div class="row">
+        <div class="col-xs-12 col-ms-12 col-md-3">
+            <div class="physicalstore-store-left">
+                <h1 class="physicalstore-store-title"> 店铺评价 </h1>
+                <?php foreach ( $evaluate_text as $Eva_text): ?>
+                    <?php echo $Eva_text['evaluate_content'] ?>
+                <?php endforeach; ?>
+                <br>
+            </div>
+            <div data-mage-init='{"myjs": {}}'>
+                <a href="#" id="addNewEv">新增评价</a>
+            </div>
+
+
+            <div id="popup-modal" >
+                <form action="/demo/Physicalstore/newev"  method="post" id="Ev-add-form"  enctype="multipart/form-data">
+
+                    <input name="form_key" type="hidden" value="<?= $block->escapeHtmlAttr($block->getFormKey()) ?>" />
+                    <input name="EvaluateContent" type="text">
+                    <input name="storeId" type="hidden" value="<?= $block->getStoreId()?>">
+                </form>
+            </div>
+
+
+        </div>
+	</div>
+</div>
+
+
+<script>
+    require(["jquery"],function($){
+        $(document).ready(function(){
+            // $('#addNewEv').on('click', function () {
+            //     alert(1111)
+            // });
+        })
+    });
+</script>
